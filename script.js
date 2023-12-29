@@ -72,3 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const queryParams = { query };
       return fetchAPI(endpoint, queryParams);
     }
+
+    async function displayMovieDetails(movieId) {
+        // Redirect to the detail page for the selected movie
+        window.location.href = `detail.html?id=${movieId}`;
+      }
+      
+      function goBack() {
+        const moviesContainer = document.getElementById('moviesContainer');
+        const backButton = document.getElementById('backButton');
+      
+        // Clear the moviesContainer and hide the back button
+        moviesContainer.innerHTML = '';
+        backButton.style.display = 'none';
+      
+        // Navigate back to the index page
+        window.location.href = 'index.html';
+      }
