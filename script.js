@@ -40,3 +40,35 @@ document.addEventListener('DOMContentLoaded', () => {
       <p>${movie.title}</p>
     </div>`;
   }
+
+  async function searchMovies() {
+    const searchInput = document.getElementById('searchInput').value;
+    const moviesContainer = document.getElementById('moviesContainer');
+    const backButton = document.getElementById('backButton');
+  
+    if (searchInput.trim() !== '') {
+      const data = await searchMovie(searchInput);
+  
+      moviesContainer.innerHTML = '<h2>Search Results</h2>';
+      if (data.results.length > 0) {
+        data.results.forEach(movie => {
+          moviesContainer.innerHTML += createMovieCard(movie);
+        });
+        // Show the back button after searching
+        backButton.style.display = 'inline-block';
+      } else {
+        moviesContainer.innerHTML += '<p>No results found.</p>';
+        backButton.style.display = 'none';
+      }
+    } else {
+      moviesContainer.innerHTML = '';
+      backButton.style.display = 'none';
+    }
+  }
+
+    // Function to search a movie based on name
+    async function searchMovie(query) {
+      const endpoint = '/search/movie';
+      const queryParams = { query };
+      return fetchAPI(endpoint, queryParams);
+    }

@@ -26,5 +26,21 @@ body {
     padding: 20px;
   }
 
+  .search-bar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  #backButton {
+    margin-left: 5px; /* Adjust the margin as needed */
+  }
   
+  #searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+    width: 200px; /* Adjust the width as needed */
+  }
