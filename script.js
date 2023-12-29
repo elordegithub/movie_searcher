@@ -19,3 +19,24 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error fetching data:', error);
     }
   }
+
+  async function displayUpcomingMovies() {
+    const moviesContainer = document.getElementById('moviesContainer');
+    const data = await fetchAPI('/movie/upcoming', { language: 'en-US', page: 1 });
+  
+    moviesContainer.innerHTML = '<h2>Upcoming Movies</h2>';
+    if (data.results.length > 0) {
+      data.results.forEach(movie => {
+        moviesContainer.innerHTML += createMovieCard(movie);
+      });
+    } else {
+      moviesContainer.innerHTML += '<p>No upcoming movies available.</p>';
+    }
+  }
+
+  function createMovieCard(movie) {
+    return `<div class="movie-card" onclick="displayMovieDetails(${movie.id})">
+      <img src="${imageUrl}${movie.poster_path}" alt="${movie.title}">
+      <p>${movie.title}</p>
+    </div>`;
+  }
