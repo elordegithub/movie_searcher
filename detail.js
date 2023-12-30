@@ -24,3 +24,37 @@ async function fetchAPI(endpoint, queryParams = {}) {
     console.error('Error fetching data:', error);
   }
 }
+
+async function displayMovieAndSimilarMovies(movieId) {
+    const selectedMovieContainer = document.getElementById('selectedMovie');
+    const movieDetails = await fetchAPI(`/movie/${movieId}`, { language: 'en-US' });
+  
+  selectedMovieContainer.innerHTML = `
+    <div id="selectedMovie">
+      <img src="${imageUrl}${movieDetails.poster_path}" alt="${movieDetails.title}">
+      <div id="selectedMovieDetails">
+        <h1>${movieDetails.title}</h1>
+        <p><span style="color:blue;font-weight:bold">Story:</span> ${movieDetails.overview}</p>
+        <p><span style="color:blue;font-weight:bold">Release Date:</span> ${movieDetails.release_date}</p>
+        <p><span style="color:blue;font-weight:bold">Director:</span> ${await getMovieCrew(movieId, 'Director')}</p>
+        <p><span style="color:blue;font-weight:bold">Stars/Actors:</span> ${await getActorsInfo(movieId)}</p>
+        <p><span style="color:blue;font-weight:bold">Genre:</span> ${getGenres(movieDetails.genres)}</p>
+        <p><span style="color:blue;font-weight:bold">Ratings:</span> ${getRatings(movieDetails)}</p>
+      </div>
+    </div>`;
+  
+    const similarMovies = await fetchAPI(`/movie/${movieId}/similar`, { language: 'en-US', page: 1 });
+  
+    // Process and display similar movies on the UI
+    if (similarMovies.results.length > 0) {
+      similarMoviesContainer.innerHTML = '<h2>Similar Movies</h2>';
+      similarMoviesContainer.innerHTML += '<div class="similar-movies-grid">';
+      similarMovies.results.forEach(movie => {
+        similarMoviesContainer.innerHTML += `<div class="similar-movie" onclick="displayMovieAndSimilarMovies(${movie.id})">
+          <img src="${imageUrl}${movie.poster_path}" alt="${movie.title}">
+          <p>${movie.title}</p>
+        </div>`;
+      });
+      similarMoviesContainer.innerHTML += '</div>';
+    }
+  }
