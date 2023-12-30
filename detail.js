@@ -58,3 +58,43 @@ async function displayMovieAndSimilarMovies(movieId) {
       similarMoviesContainer.innerHTML += '</div>';
     }
   }
+
+  async function getActorsInfo(movieId) {
+    const credits = await fetchAPI(`/movie/${movieId}/credits`);
+  
+    // Get information about the first 5 actors for brevity
+    const actors = credits.cast.slice(0, 5);
+  
+    // Check if there are any actors in the cast
+    if (actors.length === 0) {
+      return 'N/A';
+    }
+  
+    // Format actor information (name and character played)
+    const actorsInfo = actors.map(actor => `${actor.name} as ${actor.character || 'N/A'}`);
+  
+    return actorsInfo.join(', ');
+  }
+  
+  async function getMovieCrew(movieId, job) {
+    const credits = await fetchAPI(`/movie/${movieId}/credits`);
+  
+    const crew = credits.crew.find(member => member.job === job);
+  
+    return crew ? crew.name : 'N/A';
+  }
+  
+  function getGenres(genres) {
+    return genres.map(genre => genre.name).join(', ');
+  }
+  
+  function getRatings(data) {
+    const ratings = data.vote_average;
+    const maxRating = 10; 
+    return `${ratings}/${maxRating}`;
+  }
+  
+  function goBack() {
+    // Navigate back to the index page
+    window.history.back();
+  }
