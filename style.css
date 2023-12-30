@@ -1,90 +1,93 @@
 body {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 header {
-    background-color: #ff9001;
-    color: rgb(0, 0, 0);
-    padding: 10px;
-    text-align: center;
-  }
+  background-color: #ff9001;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-align: center;
+}
 
 button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-  }
-  
+  background-color: #4caf50;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
 main {
-    padding: 20px;
-  }
+  padding: 20px;
+}
 
 .search-bar {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #backButton {
-    margin-left: 5px; /* Adjust the margin as needed */
-  }
-  
+  margin-left: 5px; /* Adjust the margin as needed */
+}
+
 #searchInput {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 5px;
-    width: 200px; /* Adjust the width as needed */
-  }
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+  width: 200px; /* Adjust the width as needed */
+}
 
 .movie-card {
-    cursor: pointer;
-    margin: 10px;
-    display: inline-block;
-  }
-  
+  cursor: pointer;
+  margin: 10px;
+  display: inline-block;
+}
+
 .movie-card img {
-    width: 100%;
-    height: auto;
-  }
+  width: 100%;
+  height: auto;
+}
 
 #moviesContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    justify-content: space-around;
-    padding: 20px;
-  }
-  
-.movie-card, .similar-movie {
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.3s;
-  }
-  
-.movie-card:hover, .similar-movie:hover {
-    transform: scale(1.1);
-  }
-  
-.movie-card img, .similar-movie img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.movie-card,
+.similar-movie {
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.movie-card:hover,
+.similar-movie:hover {
+  transform: scale(1.1);
+}
+
+.movie-card img,
+.similar-movie img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 #movieDetailsContainer {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

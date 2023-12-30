@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Search</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>FilmQuest</h1>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search for a movie">
-      <button onclick="searchMovies()">Search</button>
-      <button id="backButton" onclick="goBack()" style="display:none">Back</button>
-    </div>
-  </header>
-  <main id="moviesContainer">
-    <!-- Display upcoming movies or search results here -->
-  </main>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>FilmQuest</h1>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for a movie" />
+        <button onclick="searchMovies()">Search</button>
+        <button id="backButton" onclick="goBack()" style="display: none">
+          Back
+        </button>
+      </div>
+    </header>
+    <main id="moviesContainer">
+      <!-- Display upcoming movies or search results here -->
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
