@@ -29,3 +29,22 @@ body {
   main {
     padding: 20px;
   }
+
+  #selectedMovie {
+    display: flex;
+    align-items: flex-start; 
+    margin-bottom: 20px;
+  }
+  
+  #selectedMovie img {
+    max-width: 40%; 
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  #selectedMovieDetails {
+    flex: 1; 
+    padding-left: 20px;
+  }
+
+  
